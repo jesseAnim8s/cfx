@@ -1,6 +1,4 @@
-"""
-General Python utility functions.
-"""
+"""General Python utility functions."""
 
 
 # General Imports
@@ -21,13 +19,33 @@ company = 'None'
 
 def get_home_dir():
     """Gets the user's home directory on any platform."""
-    home_dir = expanduser("~")
+    home_dir = expanduser('~')
     return home_dir
 
 
+def get_file_name(file_path):
+    """Deduces the file name, from a given file path string."""
+    file_name = basename(file_path)
+    return file_name
+
+
+def get_file_name_no_ext(file_path):
+    """Deduces the file name from a given file path, with no extension."""
+    file_name, ext = splitext(basename(file_path))
+    return file_name
+
+
+def get_file_ext(file_path):
+    """Deduces the file name from a given file path, with no extension."""
+    file_name, ext = splitext(basename(file_path))
+    return ext
+
+
 def joinpath(*args):
-    """
-    Joins paths and standardizes separators per OS.
+    """Joins paths and standardizes separators per OS.
+
+    Args:
+        args (dict): Passes through args to the python join function.
 
     Returns:
         String path of assembled pieces, with unified path separators.
@@ -41,19 +59,20 @@ def joinpath(*args):
 
 
 def file_basename(file_name):
-    """
-    Strips path and file extension from a file path.
+    """Strips path and file extension from a file path.
+
     Args:
         file (str): The file path to get the basename,
             with no extension, for.
-    Return (str): The file name without path and extension.
+
+    Returns:
+        str: The file name without path and extension.
     """
     return splitext(basename(file_name))[0]
 
 
 def get_next_name(name, existing_names, padding=2):
-    """
-    Gets the next available name, given a list/tuple of existing names.
+    """Gets the next available name, given a list/tuple of existing names.
 
     Args:
         name (str): The name to try to get, if not taken
@@ -61,7 +80,7 @@ def get_next_name(name, existing_names, padding=2):
         padding (int): The number of digits for numerical padding
 
     Returns:
-        The next unused name, as a string
+        str: The next unused name, as a string
     """
     assert isinstance(name, basestring), 'Name must be a string'
     assert isinstance(existing_names, (list, tuple)), \
@@ -84,7 +103,11 @@ def get_next_name(name, existing_names, padding=2):
 
 
 def hex_to_rgb(hex_str):
-    """Converts a hexadecimal string into an RGB tuple."""
+    """Converts a hexadecimal string into an RGB tuple.
+
+    Returns:
+        tuple: The converted 3 integers of the RGB conversion value.
+    """
     h = hex_str.lstrip('#')
     rgb256 = tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
     rgb = [float(x)/255 for x in rgb256]
