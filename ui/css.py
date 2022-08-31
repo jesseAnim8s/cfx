@@ -1,6 +1,4 @@
-"""
-A container for CSS stylesheets for use in UIs.
-"""
+"""A container for CSS stylesheets for use in UIs."""
 
 
 # General Imports
@@ -14,8 +12,9 @@ __email__ = 'seven6ty@hotmail.com'
 __version__ = 'beta'
 # Variables
 package_dir = dirname(dirname(__file__))
-icon_path = joinpath(package_dir, 'icons')
 max_button_size = 20
+# Constructs the path to the icon images
+icon_path = joinpath(package_dir, 'icons')
 
 
 # Stylesheet strings
@@ -171,9 +170,7 @@ replace_icon_stylesheet = generic_button_icon_stylesheet.format(
     joinpath(icon_path, 'double_left_arrow_hilite_icon.png'),
     joinpath(icon_path, 'double_left_arrow_disabled_icon.png')
 )
-checkbox_stylsheet = '''
-    color: white;
-'''
+checkbox_stylsheet = 'color: white;'
 black_combo_stylesheet = '''
     QComboBox {
         background-color: rgb(26, 26, 26);
