@@ -1,6 +1,4 @@
-"""
-Creates a generic UI template.
-"""
+"""Creates a generic UI template."""
 
 
 # General Imports
@@ -10,7 +8,7 @@ try:
 except ImportError:
     from PySide import QtCore, QtGui, QtWidgets
 # Package imports
-from cfx import ui_utils as ui_utils
+from cfx.ui import ui_utils
 # Reloads (to be taken out upon release)
 
 
